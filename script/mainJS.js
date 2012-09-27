@@ -28,8 +28,6 @@ window.requestAnimFrame = (function(){
 
 	function main(){
 	
-		
-
 		loop();
 
 	}
@@ -48,12 +46,13 @@ window.requestAnimFrame = (function(){
 
 	$("#x-coor").val(50);
 	$("#y-coor").val(30);
-
+	$("#textSize").val(50);
 
 	function Text(){
 		this.drawX=Number($("#x-coor").val());
 		this.drawY=Number($("#y-coor").val());
 		this.textValue=$("#textField").val();
+		this.textSize=$("#textSize").val();
 		this.isUpkey=false;
 		this.isDownkey=false;
 		this.isRightkey=false;
@@ -61,11 +60,6 @@ window.requestAnimFrame = (function(){
 		this.isEnterKey=false;
 	
 	}
-
-
-
-
-
 
 
 
@@ -89,17 +83,22 @@ window.requestAnimFrame = (function(){
 			$("#x-coor").val(this.drawX);
 		}
 
-		
+		$("#textSize").change(function(){
+			$("#textValue").css("font-size",function(){
+				("#textSize").val();
+			})
+		})
 
 		if (this.isEnterKey){
 			
 			
-			ctx.fillText($("#textField").val(),$("#x-coor").val(),$("#y-coor").val());
+			ctx.fillText($("#textField").val(),$("#x-coor").val(),$("#y-coor").val(),$("#textSize").val());
 
 		}
 		
 
 	}
+
 
 
 
